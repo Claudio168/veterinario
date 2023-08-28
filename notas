@@ -1,0 +1,20 @@
+- crear nuevo proyecto
+- en composer.json cambiar a  "minimum-stability": "dev", 
+- composer require filament/filament:"^3.0-stable" -W
+- php artisan filament:install --panels
+- hacer las migraciones
+- crear un usuario  php artisan make:filament-user   
+- en la ruta admin/login
+- crear los modelos con sus migraciones ej: php artisan make:model Owner -m  (ver las migraciones y sus relaciones)
+- crear los CRUD  eje: php artisan make:filament-resource Patient 
+  Se crea en App/Filament/resource
+- en PatientResource - function form ver como se crean los campos
+- para crear las realciones:  php artisan make:filament-relation-manager PatientResource treatments description
+  con esto de crea otro archivo de RelationManager
+- nuevamente en PatientResource buscar la function getRelations() y retornar   RelationManagers\TreatmentsRelationManager::class,
+  que se creo anteriormente
+- ver el archivo TreatmentsRelationManager para ver como se crean el form y las tables
+
+- crear un widget eje: php artisan make:filament-widget PatientTypeOverview --stats-overview
+  en primer menzaje no llenar nada y en el segundo poner admin
+- luego en app/filament/widget ver el codigo
